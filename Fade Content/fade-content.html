@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade Content Demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        fade-content {
+            display: block;
+            margin: 100vh 0;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 使用方式1：类似 React 组件的写法 -->
+        <fade-content
+            blur="true"
+            duration="500"
+            easing="ease-out"
+            initialOpacity="0">
+            <h2>第一个淡入区块</h2>
+            <p>这是使用自定义元素的内容</p>
+        </fade-content>
+
+        <!-- 使用方式2：不同的配置 -->
+        <fade-content
+            blur="true"
+            duration="200"
+            delay="500"
+            threshold="0.2">
+            <h2>第二个淡入区块</h2>
+            <p>这个区块有不同的动画配置</p>
+        </fade-content>
+    </div>
+
+    <script src="./fade-content.js"></script>
+</body>
+</html>

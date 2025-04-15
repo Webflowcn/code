@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Trail Effect</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="ImageTrail.css">
+    <style>
+        .variant-selector {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .variant-selector select {
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="variant-selector">
+        <select id="variantSelect">
+            <option value="1">Variant 1</option>
+            <option value="2">Variant 2</option>
+            <option value="3">Variant 3</option>
+            <option value="4">Variant 4</option>
+            <option value="5">Variant 5</option>
+            <option value="6">Variant 6</option>
+            <option value="7" selected>Variant 7</option>
+            <option value="8">Variant 8</option>
+        </select>
+    </div>
+
+    <div class="collection-wrapper" image-trail="wrapper" variant="1">
+        <div class="collection-list">
+            <div class="item">
+                <img src="https://picsum.photos/id/287/300/300" alt="image"  image-trail="image">
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/id/1001/300/300" alt="image" image-trail="image">
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/id/1025/300/300" alt="image" image-trail="image">
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/id/1026/300/300" alt="image" image-trail="image">
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/id/1027/300/300" alt="image" image-trail="image">
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/id/1028/300/300" alt="image" image-trail="image">
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/id/1029/300/300" alt="image" image-trail="image">
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/id/1030/300/300" alt="image" image-trail="image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('variantSelect').addEventListener('change', function(e) {
+            const container = document.querySelector('[image-trail]');
+            container.setAttribute('variant', e.target.value);
+            // 重新初始化
+            container.innerHTML = container.innerHTML;
+            initImageTrail();
+        });
+    </script>
+    <script src="image-trail.js"></script>
+</body>
+</html>
